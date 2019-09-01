@@ -29,5 +29,22 @@ module.exports = {
       test: /\.css?$/,
       loaders: ['style', 'raw']
     }]
+  },
+  devServer: {
+    publicPath: '/static/',
+    hot: true,
+    historyApiFallback: true,
+    stats: {
+        colors: true
+    },
+    port: 3000,
+    proxy: {
+      '/api/': {
+          target: 'http://127.0.0.1:3001',
+      },
+      '/proxy/': {
+          target: 'http://127.0.0.1:3001',
+      },
+    },
   }
 };

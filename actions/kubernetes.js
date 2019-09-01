@@ -1,7 +1,7 @@
 import 'whatwg-fetch'
 import * as type from '../constants/actionTypes';
 
-const KUBERNETES_URL = 'http://localhost:8080/api/v1';
+const KUBERNETES_URL = '/api/v1';
 
 function setKind(kind, resources){
     return resources.map(r => ({...r, kind}));

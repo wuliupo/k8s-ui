@@ -25,7 +25,7 @@ class Navigation {
                     <i className="server icon"></i>
                     <div className="header">Nodes</div>
                     <div className="menu">
-                        {kubernetes.nodes.map(node =>
+                        {(kubernetes.nodes || []).map(node =>
                             <Link
                                 to={`/nodes/${node.metadata.name}`}
                                 key={node.metadata.name}
@@ -39,7 +39,7 @@ class Navigation {
                     <i className="sitemap icon"></i>
                     <div className="header">Namespaces</div>
                     <div className="menu">
-                        {kubernetes.namespaces.map(ns =>
+                        {(kubernetes.namespaces || []).map(ns =>
                             <Link
                                 to={`/namespaces/${ns.metadata.name}`}
                                 key={ns.metadata.name}

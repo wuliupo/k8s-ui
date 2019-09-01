@@ -11,7 +11,7 @@ class KubernetesApp {
                     <div className="four wide column">
                         <h1 className="ui blue header">
                             <i className="cloud upload icon"></i>
-                            <div className="content">k8s-helm</div>
+                            <div className="content">k8s-ui</div>
                         </h1>
                         <Navigation />
                     </div>

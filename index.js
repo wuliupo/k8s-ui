@@ -1,9 +1,8 @@
 import React from 'react';
 import App from './components/App';
-
-import HashHistory from 'react-router/lib/HashHistory';
+import {hashHistory} from 'react-router';
 
 React.render(
-    <App history={new HashHistory()} />,
+    <App history={hashHistory} />,
     document.getElementById('app')
 );
