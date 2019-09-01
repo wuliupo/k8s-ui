@@ -56,14 +56,14 @@ class Namespace {
                             <Link
                                 to={this.props.location.pathname}
                                 query={{layout: 'cards'}}
-                                className="ui button"
+                                className={"ui button " + (this.props.location.query.layout === 'cards' ? 'active' : '')}
                             >
                                 <i className="list layout icon"></i>
                             </Link>
                             <Link
                                 to={this.props.location.pathname}
                                 query={{layout: 'table'}}
-                                className="ui button"
+                                className={"ui button " + (this.props.location.query.layout === 'table' ? 'active' : '')}
                             >
                                 <i className="table icon"></i>
                             </Link>

@@ -12,3 +12,7 @@
 .ui.table.multibody > tbody > tr.expanded > td {
     border-top: none;
 }
+
+.ui.small.label, .ui.small.labels .label {
+    margin-bottom: 5px;
+}

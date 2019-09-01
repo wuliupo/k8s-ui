@@ -24,30 +24,32 @@ class Navigation {
                 <div className="item">
                     <i className="server icon"></i>
                     <div className="header">Nodes</div>
-                    <div className="menu">
+                    <ol className="menu">
                         {(kubernetes.nodes || []).map(node =>
-                            <Link
-                                to={`/nodes/${node.metadata.name}`}
-                                key={node.metadata.name}
-                                className="item"
-                                activeClassName="active"
-                            >{node.metadata.name}</Link>
+                            <li key={node.metadata.name}>
+                                <Link
+                                    to={`/nodes/${node.metadata.name}`}
+                                    className="item"
+                                    activeClassName="active"
+                                >{node.metadata.name}</Link>
+                            </li>
                         )}
-                    </div>
+                    </ol>
                 </div>
                 <div className="item">
                     <i className="sitemap icon"></i>
                     <div className="header">Namespaces</div>
-                    <div className="menu">
+                    <ol className="menu">
                         {(kubernetes.namespaces || []).map(ns =>
-                            <Link
-                                to={`/namespaces/${ns.metadata.name}`}
-                                key={ns.metadata.name}
-                                className="item"
-                                activeClassName="active"
-                            >{ns.metadata.name}</Link>
+                            <li key={ns.metadata.name}>
+                                <Link
+                                    to={`/namespaces/${ns.metadata.name}`}
+                                    className="item"
+                                    activeClassName="active"
+                                >{ns.metadata.name}</Link>
+                            </li>
                         )}
-                    </div>
+                    </ol>
                 </div>
                 <div className="item">
                     <Link

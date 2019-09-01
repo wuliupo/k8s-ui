@@ -43,8 +43,8 @@ class Pod {
                 </table>
                 <div className="ui segment">
                     {(spec.containers || []).map(c => {
-                        return <div>
-                            <Name name={c.name} key={c.name} kind='Container' />
+                        return <div key={c.name}>
+                            <Name name={c.name} kind='Container' />
                             <table className="ui definition table">
                                 <tbody>
                                     <tr>
@@ -58,7 +58,7 @@ class Pod {
                                     <tr>
                                         <td className="collapsing">Container env</td>
                                         <td>{(c.env || []).map(e => {
-                                            return (<table className="ui definition table">
+                                            return (<table key={e.name} className="ui definition table">
                                                 <tbody>
                                                     <tr>
                                                         <td className="collapsing">{e.name}</td>

@@ -23,7 +23,7 @@ class Service {
                                     </tr>
                                 </thead>
                                 <tbody>{(spec.ports || []).map(p => {
-                                    return (<tr>
+                                    return (<tr key={p.port}>
                                         <td className="ignored">{p.port}</td>
                                         <td>{p.protocol}</td>
                                         <td>{p.targetPort}</td>

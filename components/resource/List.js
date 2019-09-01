@@ -14,7 +14,7 @@ class List {
         const { layout, resources } = this.props;
         const LayoutComponent = LAYOUT_COMPONENTS[layout];
 
-        let components = resources.map(r =>
+        let components = resources.map((r, i) =>
             <LayoutComponent resource={r} key={`${r.kind}/${r.metadata.name}`} />
         );
 
@@ -27,7 +27,6 @@ class List {
     }
 
     renderDiv(components){
-        const { layout } = this.props;
         return (
             <div>
                 {components}
