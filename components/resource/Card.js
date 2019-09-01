@@ -45,10 +45,7 @@ export default class ResourceCard extends React.Component {
     renderDetails(){
         const Details = DETAILS_COMPONENT[this.props.resource.kind];
         return (
-            <div>
-                <p></p>
-                <Details resource={this.props.resource} />
-            </div>
+            <Details resource={this.props.resource} />
         );
     }
 

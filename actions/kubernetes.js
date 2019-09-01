@@ -13,7 +13,7 @@ export function fetchNamespaces() {
         .then(res => res.json())
         .then(res => dispatch({
             type: type.FETCH_NAMESPACES,
-            namespaces: res.items
+            namespaces: res.body.items || []
         }));
     };
 }
@@ -24,7 +24,7 @@ export function fetchNodes() {
         .then(res => res.json())
         .then(res => dispatch({
             type: type.FETCH_NODES,
-            nodes: res.items
+            nodes: res.body.items || []
         }));
     };
 }
@@ -35,7 +35,7 @@ export function changeNamespace(name) {
         .then(res => res.json())
         .then(res => dispatch({
             type: type.FETCH_NAMESPACE_SERVICES,
-            services: setKind('Service', res.items),
+            services: setKind('Service', res.body.items || []),
             namespaceName: name
         }));
 
@@ -43,7 +43,7 @@ export function changeNamespace(name) {
         .then(res => res.json())
         .then(res => dispatch({
             type: type.FETCH_NAMESPACE_PODS,
-            pods: setKind('Pod', res.items),
+            pods: setKind('Pod', res.body.items || []),
             namespaceName: name
         }));
 
@@ -51,7 +51,7 @@ export function changeNamespace(name) {
         .then(res => res.json())
         .then(res => dispatch({
             type: type.FETCH_NAMESPACE_REPLICATIONCONTROLLERS,
-            replicationControllers: setKind('ReplicationController', res.items),
+            replicationControllers: setKind('ReplicationController', res.body.items || []),
             namespaceName: name
         }));
     };
@@ -63,7 +63,7 @@ export function changeNode(name) {
         .then(res => res.json())
         .then(res => dispatch({
             type: type.FETCH_NODE,
-            node: res
+            node: res.body || {}
         }));
     };
 }
