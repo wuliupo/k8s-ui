@@ -16,3 +16,9 @@
 .ui.small.label, .ui.small.labels .label {
     margin-bottom: 5px;
 }
+.pull-right {
+    float: right !important;
+}
+.cursor-pointer {
+    cursor: pointer;
+}

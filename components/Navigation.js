@@ -7,14 +7,27 @@ import * as k8s from '../actions/kubernetes';
 @connect(state => ({
     kubernetes: state.kubernetes
 }))
-class Navigation {
+class Navigation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showNodes: true,
+            showNamespaces: true,
+        };
+    }
     componentDidMount() {
         this.props.dispatch(k8s.fetchNodes());
         this.props.dispatch(k8s.fetchNamespaces());
     }
 
+    handleClick(showX) {
+        this.setState({
+            [showX]: !this.state[showX],
+        });
+    }
+
     render() {
-        const {kubernetes, dispatch} = this.props;
+        const {kubernetes} = this.props;
         return (
             <div className="ui fluid vertical menu">
                 <Link to="/" className="header item">
@@ -22,9 +35,12 @@ class Navigation {
                     Dashboard
                 </Link>
                 <div className="item">
-                    <i className="server icon"></i>
-                    <div className="header">Nodes</div>
-                    <ol className="menu">
+                    <div className="header cursor-pointer" onClick={this.handleClick.bind(this, 'showNodes')}>
+                        <i className="server icon"></i>
+                        <span>Nodes</span>
+                        <i className={'pull-right angle icon ' + (this.state.showNodes ? 'down' : 'up')}></i>
+                    </div>
+                    <ol className="menu" style={{ display: this.state.showNodes ? 'block' : 'none'}}>
                         {(kubernetes.nodes || []).map(node =>
                             <li key={node.metadata.name}>
                                 <Link
@@ -37,9 +53,12 @@ class Navigation {
                     </ol>
                 </div>
                 <div className="item">
-                    <i className="sitemap icon"></i>
-                    <div className="header">Namespaces</div>
-                    <ol className="menu">
+                    <div className="header cursor-pointer" onClick={this.handleClick.bind(this, 'showNamespaces')}>
+                        <i className="sitemap icon"></i>
+                        <span>Namespaces</span>
+                        <i className={'pull-right angle icon ' + (this.state.showNamespaces ? 'down' : 'up')}></i>
+                    </div>
+                    <ol className="menu" style={{ display: this.state.showNamespaces ? 'block' : 'none'}}>
                         {(kubernetes.namespaces || []).map(ns =>
                             <li key={ns.metadata.name}>
                                 <Link

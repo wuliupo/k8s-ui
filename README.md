@@ -2,6 +2,9 @@
 
 Web-based admin frontend for Kubernetes clusters. Work in progress!
 
+- [react](http://reactjs.org)
+- [kubernetes-client](https://github.com/godaddy/kubernetes-client)
+
 ## Prepare
 
 - ~/.kube/config file for k8s
@@ -14,3 +17,9 @@ npm install
 npm run ui
 npm run api
 ```
+
+## Screenshot
+
+![create](./screenshot/create.jpg)
+
+![pod list](./screenshot/pod.jpg)
